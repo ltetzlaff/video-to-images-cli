@@ -33,6 +33,8 @@
     "typescript": "^2.9.2"
   },
   "dependencies": {
+    "meow": "^5.0.0",
+    "update-notifier": "^2.5.0",
     "video-to-images": "github:ltetzlaff/video-to-images"
   }
 }
