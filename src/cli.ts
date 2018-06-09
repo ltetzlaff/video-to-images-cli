@@ -17,11 +17,12 @@ const { input, pkg, flags } = cli
 
 updateNotifier({ pkg }).notify()
 
-if (input.length === 0) {
+const { i, o, f } = flags
+
+if (!i || !o || !f) {
   console.error("No path given.")
   process.exit(1)
 }
 
 // Call module default export
-const { i, o, f } = flags
 videoToImages(i, o, f)
