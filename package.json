@@ -31,5 +31,8 @@
     "@types/update-notifier": "^2.2.0",
     "tslint-lt": "^1.6.4",
     "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "video-to-images": "github:ltetzlaff/video-to-images"
   }
 }
