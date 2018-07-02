@@ -2,13 +2,15 @@
 
 import * as updateNotifier from "update-notifier"
 import * as meow from "meow"
-import m from "video-to-images"
+import videoToImages from "video-to-images"
 
 const cli = meow(`
   Usage
-    $ video-to-images <path|glob> ...
+    $ video-to-images -i <path|glob> -o <pattern> -f <fps>...
       or
-    $ video-to-images-cli <path|glob> ...
+    $ video-to-images-cli -i <path|glob> -o <pattern> -f <fps>...
+
+    pattern could e.g. be <$img_%04d.png>
 `)
 
 const { input, pkg, flags } = cli
@@ -21,4 +23,5 @@ if (input.length === 0) {
 }
 
 // Call module default export
-m(input, flags)
+const { i, o, f } = flags
+videoToImages(i, o, f)
