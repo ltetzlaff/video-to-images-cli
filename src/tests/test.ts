@@ -5,12 +5,10 @@ async function run() {
   const args = ""
 
   const res = await Promise.all(
-    commands
-      .map(async (c, i) => exec(c + args))
-      .map(async (execution, i) => {
-        const { stdout, stderr } = await execution
-        return { stdout, stderr }
-      })
+    commands.map(async (c, i) => exec(c + args)).map(async (execution, i) => {
+      const { stdout, stderr } = await execution
+      return { stdout, stderr }
+    })
   )
   console.log(JSON.stringify(res))
 }
