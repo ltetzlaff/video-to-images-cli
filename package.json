@@ -1,6 +1,6 @@
 {
   "name": "video-to-images-cli",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "CLI for video-to-images",
   "bin": {
     "video-to-images": "dist/cli.js",
