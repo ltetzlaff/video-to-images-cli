@@ -24,7 +24,7 @@
     "url": "https://github.com/ltetzlaff/video-to-images-cli.git"
   },
   "author": "ltetzlaff",
-  "license": "All rights reserved.",
+  "license": "GPL-3.0",
   "devDependencies": {
     "@types/meow": "^4.0.1",
     "@types/node": "^10.5.1",
