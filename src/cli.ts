@@ -19,8 +19,12 @@ updateNotifier({ pkg }).notify()
 
 const { i, o, f } = flags
 
-if (!i || !o || !f) {
-  console.error("No path given.")
+const errs: string[] = [i, o, f].filter(
+  flag => flag || `Missing required flag: -${flag}`
+)
+
+if (errs.length) {
+  console.error(errs.join("\n"))
   process.exit(1)
 }
 
