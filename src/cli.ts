@@ -19,9 +19,9 @@ updateNotifier({ pkg }).notify()
 
 const { i, o, f } = flags
 
-const errs: string[] = [i, o, f].filter(
-  flag => flag || `Missing required flag: -${flag}`
-)
+const errs: string[] = [i, o, f]
+  .filter(flag => flag === undefined)
+  .map(flag => `Missing required flag: -${flag}`)
 
 if (errs.length) {
   console.error(errs.join("\n"))
