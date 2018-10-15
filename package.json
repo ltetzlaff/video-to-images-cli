@@ -26,14 +26,18 @@
   "author": "ltetzlaff",
   "license": "GPL-3.0",
   "devDependencies": {
+    "@types/glob": "^7.1.1",
     "@types/meow": "^4.0.1",
     "@types/node": "^10.5.1",
+    "@types/p-queue": "^2.3.1",
     "@types/update-notifier": "^2.2.0",
     "tslint-lt": "^1.6.4",
     "typescript": "^2.9.2"
   },
   "dependencies": {
+    "glob": "^7.1.3",
     "meow": "^5.0.0",
+    "p-queue": "^3.0.0",
     "update-notifier": "^2.5.0",
     "video-to-images": "*"
   }
