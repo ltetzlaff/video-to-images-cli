@@ -2,22 +2,24 @@
 
 import * as updateNotifier from "update-notifier"
 import * as meow from "meow"
+import { sync } from "glob"
 import videoToImages from "video-to-images"
+import * as Queue from "p-queue"
 
 const cli = meow(`
   Usage
-    $ video-to-images -i <path|glob> -o <pattern> -f <fps>...
+    $ video-to-images -i <path|glob> -o <pattern> -f <fps> -j <concurrency=1>
       or
-    $ video-to-images-cli -i <path|glob> -o <pattern> -f <fps>...
+    $ video-to-images-cli -i <path|glob> -o <pattern> -f <fps> -j <concurrency=1>
 
-    pattern could e.g. be <$img_%04d.png>
+    pattern could e.g. be "$img_%04d.png"
 `)
 
 const { input, pkg, flags } = cli
 
 updateNotifier({ pkg }).notify()
 
-const { i, o, f } = flags
+const { i, o, f, j = 1 } = flags
 
 const errs: string[] = [i, o, f]
   .filter(flag => flag === undefined)
@@ -28,5 +30,12 @@ if (errs.length) {
   process.exit(1)
 }
 
-// Call module default export
-videoToImages(i, o, f)
+// Resolve input glob
+const inputs = sync(i)
+
+// Call Module from concurrenct queue
+const queue = new Queue({ concurrency: j })
+for (const input of inputs) {
+  queue.add(() => videoToImages(input, o, f))
+}
+queue.onEmpty().then(() => console.log("Done"))
