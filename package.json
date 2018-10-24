@@ -39,6 +39,6 @@
     "meow": "^5.0.0",
     "p-queue": "^3.0.0",
     "update-notifier": "^2.5.0",
-    "video-to-images": "*"
+    "video-to-images": "^1.0.1"
   }
 }
