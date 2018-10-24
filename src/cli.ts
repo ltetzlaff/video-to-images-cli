@@ -36,6 +36,6 @@ const inputs = sync(i)
 // Call Module from concurrenct queue
 const queue = new Queue({ concurrency: j })
 for (const input of inputs) {
-  queue.add(() => videoToImages(input, o, f))
+  queue.add(async () => videoToImages(input, o, f))
 }
 queue.onEmpty().then(() => console.log("Done"))
