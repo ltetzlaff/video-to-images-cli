@@ -34,8 +34,14 @@ if (errs.length) {
 const inputs = sync(i)
 
 // Call Module from concurrenct queue
+const len = inputs.length
+console.log(`Received ${len} inputs`)
 const queue = new Queue({ concurrency: j })
-for (const input of inputs) {
-  queue.add(async () => videoToImages(input, o, f))
+for (let i = 0; i < len; i++) {
+  queue.add(async () => {
+    console.log(`Starting ${i + 1}/${len}`)
+    const inputFile = inputs[i]
+    return videoToImages(inputFile, `${inputFile}_${o}`, f)
+  })
 }
 queue.onEmpty().then(() => console.log("Done"))
