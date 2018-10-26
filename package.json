@@ -12,7 +12,8 @@
     "lint": "tslint --format stylish --project .",
     "prettier": "prettier --config node_modules/tslint-lt/.prettierrc.yml --write \"{,!node_modules/}**/*.{ts,tsx}\"",
     "test": "npm run buildOnce && npm run lint && npm run prettier && node dist/tests/test.js",
-    "prepublish": "npm run buildOnce"
+    "prepublish": "npm run buildOnce",
+    "start": "node dist/cli.js"
   },
   "files": [
     "dist"
