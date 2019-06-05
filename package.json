@@ -31,7 +31,7 @@
     "@types/node": "^10.5.1",
     "@types/p-queue": "^2.3.1",
     "@types/update-notifier": "^2.2.0",
-    "tslint-lt": "^1.6.4",
+    "tslint-lt": "^1.9.0",
     "typescript": "^2.9.2"
   },
   "dependencies": {
