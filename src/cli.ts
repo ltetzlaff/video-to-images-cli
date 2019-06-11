@@ -4,7 +4,7 @@ import * as updateNotifier from "update-notifier"
 import * as meow from "meow"
 import { sync } from "glob"
 import videoToImages from "video-to-images"
-import * as Queue from "p-queue"
+import Queue from "p-queue"
 
 const cli = meow(`
   Usage
